@@ -3,15 +3,11 @@
 import getuinfo
 import re
 
-method = 'com.aop.method.historyaccquiry'
+method = 'com.aop.method.mobilenetdata'
 user_id = '18607106820'
-config = {'billdate':'201512'}
+config = {}
 
 result = getuinfo.getresult(method,user_id,**config)
 
-res = result['billstr']
 
-
-rs = re.findall("月固定费: (.*?);".decode('utf-8'),res,re.S)
-
-print rs
+print result
