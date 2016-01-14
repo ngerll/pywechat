@@ -1,9 +1,9 @@
-import requests
+# -*- coding: utf-8 -*-
+
 import hashlib
 import base64
 import datetime
 import hmac
-
 
 def getsign(**config):
 
@@ -18,20 +18,18 @@ def getsign(**config):
 
     keys = param.keys()
     keys.sort()
-    sgin_tmp = ''
+    sign_tmp = ''
+
 
     for key in keys:
-        sgin_tmp = sgin_tmp + key + '$' + param[key]
+        sign_tmp = sign_tmp + key + '$' + param[key] + '$'
 
-    sgin_str = securet +'$' + sgin_tmp + '$' + securet
-    print sgin_str
-    sign_m = hmac.new(sgin_str)
-    sign_md5 = sign_m.digest()
-    print sign_md5
+    sign_tmp =  sign_tmp[:-1]
 
-    sign = base64.b64encode(sign_md5)
+    skey = base64.b64decode(securet)
 
-    print sign
+    mac = hmac.new(skey,sign_tmp)
+    sign = base64.b64encode(mac.digest())
 
     signd = {'sign':sign}
     param.update(signd)
@@ -39,11 +37,10 @@ def getsign(**config):
     return param
 
 
+if __name__ == '__main__':
+    addconfig = {'method':'com.aop.method.realnamecheckqry','usernumber':'15607191388'}
 
-# if __name__ == '__main__':
-#     addconfig = {'method':'com.aop.method.realnamecheckqry','usernumber':'15607191388'}
-#
-#     print getsign(**addconfig)
+    print getsign(**addconfig)
 
 
 
