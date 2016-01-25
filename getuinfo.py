@@ -10,7 +10,7 @@ def getuinfo(user_id):
     addconfig = {'method':'com.aop.method.realnamecheckqry','usernumber':user_id}
     params = getbody.getsign(**addconfig)
 
-    url = 'http://132.38.0.86:9200/openservlet'
+    url = 'http://211.94.67.94:8001/openservlet'
 
     respone = requests.get(url,params=params)
 
@@ -36,7 +36,7 @@ def getresult(method,user_id,**config):
 
     params = getbody.getsign(**addconig)
 
-    url = 'http://132.38.0.86:9200/openservlet'
+    url = 'http://211.94.67.94:8001/openservlet'
 
     respone = requests.get(url,params=params)
 
@@ -45,4 +45,6 @@ def getresult(method,user_id,**config):
     result = demjson.decode(context)
 
     return result
+
+getuinfo('1313566670')
 
