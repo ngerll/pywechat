@@ -24,6 +24,8 @@ def getuinfo(user_id):
             'paytype':result['paytype']}
 
 
+
+
 def getresult(method,user_id,**config):
 
     addconig = {'method':method,'usernumber':user_id}
@@ -46,5 +48,5 @@ def getresult(method,user_id,**config):
 
     return result
 
-getuinfo('1313566670')
+getuinfo('18607106820')
 

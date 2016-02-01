@@ -5,6 +5,7 @@ import re
 import demjson
 import json
 import getaccesstoken
+import time
 
 
 
@@ -44,9 +45,12 @@ def getuserinfo(accesstoken,openid):
 def sendinfo(token,openid):
 
 
-    context = '您的余额不足，不交钱请滚！'
-    jsontext = {"touser": openid,"msgtype": "text","text": {"content": context.strip()}}
+    context = '猪饼子，你好！' + str(time.time())
+    jsontext = {"touser": openid,
+                "msgtype": "text",
+                "text": {"content": context.strip()}}
 
+    print jsontext
 
     postbody = json.dumps(jsontext,ensure_ascii=False)
 
@@ -65,12 +69,13 @@ if __name__ == '__main__':
     appid = 'wx07d1254c491a8cc6'
     secret = '1f21ad347973a669afbde3513a6864d9'
     token = getaccesstoken.getat(appid,secret)
+    print token
     # next_openid = ''
     # getuserlist(token,next_openid)
 
-    # open_id = 'oScuNjo-KiUJqAUMBRkixTgcR3L8'
+    open_id = 'oScuNjo-KiUJqAUMBRkixTgcR3L8'
     # getuserinfo(token,open_id)
-    open_id = 'oScuNjv3qKBkQEE75tAYZ1HfIIIk'
+    # open_id = 'oScuNjp1EUWK3uDc_UAxt3SWaE8E'
 
     sendinfo(token,open_id)
 
