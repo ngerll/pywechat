@@ -4,7 +4,7 @@ import requests
 import re
 import demjson
 import json
-import getaccesstoken
+import setmenu
 import time
 
 
@@ -68,7 +68,7 @@ def sendinfo(token,openid):
 if __name__ == '__main__':
     appid = 'wx07d1254c491a8cc6'
     secret = '1f21ad347973a669afbde3513a6864d9'
-    token = getaccesstoken.getat(appid,secret)
+    token = setmenu.getat(appid, secret)
     print token
     # next_openid = ''
     # getuserlist(token,next_openid)

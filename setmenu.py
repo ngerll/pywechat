@@ -53,7 +53,7 @@ def setmenu(token):
 
 
 
-    with open('E://baiduyun//wx_menu//menu_hblt.json','r') as jsonf:
+    with open('menu_hblt.json','r') as jsonf:
         context = ''
 
         for line in jsonf.readlines():
