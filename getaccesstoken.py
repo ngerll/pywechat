@@ -53,7 +53,7 @@ def setmenu(token):
 
 
 
-    with open('E://menu.json','r') as jsonf:
+    with open('E://baiduyun//wx_menu//menu_hblt.json','r') as jsonf:
         context = ''
 
         for line in jsonf.readlines():
@@ -67,11 +67,11 @@ def setmenu(token):
 
 
 if __name__ == '__main__':
-    appid = 'wx07d1254c491a8cc6'
-    secret = '1f21ad347973a669afbde3513a6864d9'
+    appid = 'wxec80b374c3ace2a4'
+    secret = '0dc774afff124f656d4983a1928fa276'
     token = getat(appid,secret)
-    print getmenujson(token)
+    # print getmenujson(token)
 
     # print delemenu(token)
 
-    # print setmenu(token)
+    print setmenu(token)

@@ -16,6 +16,7 @@ def getuinfo(user_id):
 
     context = respone.content
 
+
     result = demjson.decode(context)
 
     return {'provincecode':result['provincecode'],
@@ -48,5 +49,5 @@ def getresult(method,user_id,**config):
 
     return result
 
-getuinfo('18607106820')
+getuinfo('05545311913')
 
