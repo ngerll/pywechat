@@ -10,6 +10,10 @@ class Template:
 
 
     def __init__(self):
+        appid = 'wxec80b374c3ace2a4'
+        secret = '0dc774afff124f656d4983a1928fa276'
+        self.appid = appid
+        self.sercet = secret
         self.token = setmenu.getat(appid,secret)
 
     def getindustry(self):
@@ -59,12 +63,12 @@ class Template:
                 '''
         respone = requests.post(url,params=param,data=data)
 
+
         return respone
 
 
 if __name__ == '__main__':
-    appid = 'wxec80b374c3ace2a4'
-    secret = '0dc774afff124f656d4983a1928fa276'
+
     temp = Template()
     print temp.postinfo()
 
