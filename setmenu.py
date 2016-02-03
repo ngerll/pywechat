@@ -70,8 +70,8 @@ if __name__ == '__main__':
     appid = 'wxec80b374c3ace2a4'
     secret = '0dc774afff124f656d4983a1928fa276'
     token = getat(appid,secret)
-    # print getmenujson(token)
+    print getmenujson(token)
 
     # print delemenu(token)
 
-    print setmenu(token)
+    # print setmenu(token)
