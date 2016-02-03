@@ -59,4 +59,4 @@ if __name__ == '__main__':
     secret = '0dc774afff124f656d4983a1928fa276'
     token = setmenu.getat(appid,secret)
 
-    print postinfo(token)
+    postinfo(token)
