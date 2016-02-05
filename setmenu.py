@@ -67,11 +67,11 @@ def setmenu(token):
 
 
 if __name__ == '__main__':
-    appid = 'wxec80b374c3ace2a4'
-    secret = '0dc774afff124f656d4983a1928fa276'
+    appid = 'wx07d1254c491a8cc6'
+    secret = '1f21ad347973a669afbde3513a6864d9'
     token = getat(appid,secret)
-    print getmenujson(token)
+    # print getmenujson(token)
 
-    # print delemenu(token)
+    print delemenu(token)
 
     # print setmenu(token)
