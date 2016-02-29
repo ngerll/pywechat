@@ -16,13 +16,15 @@ def getsign(**config):
 
     param.update(config)
 
+
+
+
     keys = param.keys()
     keys.sort()
     sign_tmp = ''
 
-
     for key in keys:
-        sign_tmp = sign_tmp + key + '$' + param[key] + '$'
+        sign_tmp = sign_tmp + key + '$' + str(param[key]) + '$'
 
     sign_tmp =  sign_tmp[:-1]
 

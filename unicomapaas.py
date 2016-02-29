@@ -2,6 +2,7 @@
 
 import getuinfo
 import datetime
+import demjson
 
 
 
@@ -266,6 +267,60 @@ def getbusiacceptrecord(user_id): #业务受理记录查询
 
 
 
+def getflowanalysisdetail(user_id): #移动手机上网流量分析查询-新业务
+    method = 'com.aop.method.flowanalysisdetail'
+    config = {'proctime':datetime.datetime.now().strftime("%Y%m%d%H%M%S"),
+              'querytype':'02',
+              'begindate':'20160228000000',
+              'enddate':'20160228235959'}
+
+    result = getuinfo.getresult(method,user_id,**config)
+
+    print result
+
+    for s in result:
+        print s + " : " + result[s]
+
+
+def getfourgpackageqry(user_id): #4G套餐变更查询
+    method = 'com.aop.method.fourgpackageqry'
+    config = {'targetproducttype':'01'}
+
+    result = getuinfo.getresult(method,user_id,**config)
+
+    print demjson.encode(result)
+
+
+def fourgpackagechg(user_id): #4G套餐变更
+    method = 'com.aop.method.fourgpackagechg'
+    config = {'busitype':'24',
+              'targetproduct':
+                  [{"productid":"99999830",
+                   "productname":'76元基本套餐',
+                   "producttype":"01"}],
+              'busiorder':'BUSI001602291525318960109881'}
+
+
+    result = getuinfo.getchgresult(method,user_id,**config)
+
+    print demjson.encode(result)
+
+
+
+
+def getflowchg(user_id): #流量包2.0购买查询
+    method = 'com.aop.method.flowchg'
+    config = {}
+
+    result = getuinfo.getresult(method,user_id,**config)
+
+    print result
+
+    for s in result:
+        print s + " : " + result[s]
+
+
+
 if __name__ == '__main__':
     # getflow('18607146513')   #上网流量查询
     # getpackage('18607106820')  #4G套餐余量查询
@@ -286,4 +341,7 @@ if __name__ == '__main__':
     # getscore('18607106820') #积分查询
     # getmobileinfo('15607191388') #移动业务查询
     # mobilebusichange('15607191388') #移动业务办理
-    getbusiacceptrecord('15607191388')
+    # getbusiacceptrecord('15607191388') #业务受理记录查询
+    # getflowanalysisdetail('15607191388') #移动手机上网流量分析查询-新业务
+    getfourgpackageqry('13163340724') #4G套餐变更查询
+    # fourgpackagechg('13163340724')  #4G套餐变更

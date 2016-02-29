@@ -12,6 +12,7 @@ def getuinfo(user_id):
 
     url = 'http://132.38.0.86:9200/openservlet'
 
+
     respone = requests.get(url,params=params)
 
     context = respone.content
@@ -39,12 +40,48 @@ def getresult(method,user_id,**config):
     userinfo = getuinfo(user_id)
     addconig.update(userinfo)
 
+    params = getbody.getsign(**addconig)
+
+    url = 'http://132.38.0.86:9200/openservlet'
+
+
+
+    respone = requests.get(url,params=params)
+
+
+
+    context = respone.content
+
+    result = demjson.decode(context)
+
+    return result
+
+
+def getchgresult(method,user_id,**config):
+
+    addconig = {'method':method,'usernumber':user_id}
+
+    addconig.update(config)
+
+    userinfo = getuinfo(user_id)
+    addconig.update(userinfo)
 
     params = getbody.getsign(**addconig)
 
     url = 'http://132.38.0.86:9200/openservlet'
 
-    respone = requests.get(url,params=params)
+    para = ''
+
+    for i in params:
+        para =  para + i + "=" + str(params[i]) + "&"
+
+    para = para[:-1]
+
+    url = url + "?" + para
+
+    print url
+
+    respone = requests.get(url)
 
     context = respone.content
 
