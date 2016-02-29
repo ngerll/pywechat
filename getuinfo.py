@@ -10,7 +10,7 @@ def getuinfo(user_id):
     addconfig = {'method':'com.aop.method.realnamecheckqry','usernumber':user_id}
     params = getbody.getsign(**addconfig)
 
-    url = 'http://211.94.67.94:8001/openservlet'
+    url = 'http://132.38.0.86:9200/openservlet'
 
     respone = requests.get(url,params=params)
 
@@ -18,6 +18,9 @@ def getuinfo(user_id):
 
 
     result = demjson.decode(context)
+
+    # for i in result:
+    #     print i + result[i]
 
     return {'provincecode':result['provincecode'],
             'citycode':result['citycode'],
@@ -39,7 +42,7 @@ def getresult(method,user_id,**config):
 
     params = getbody.getsign(**addconig)
 
-    url = 'http://211.94.67.94:8001/openservlet'
+    url = 'http://132.38.0.86:9200/openservlet'
 
     respone = requests.get(url,params=params)
 
@@ -49,5 +52,7 @@ def getresult(method,user_id,**config):
 
     return result
 
-getuinfo('05545311913')
+
+if __name__ == '__main__':
+    getuinfo('15671290038')
 
