@@ -308,17 +308,23 @@ def fourgpackagechg(user_id): #4G套餐变更
 
 
 
-def getflowchg(user_id): #流量包2.0购买查询
-    method = 'com.aop.method.flowchg'
+def getflowqry(user_id): #流量包2.0购买查询
+    method = 'com.aop.method.flowqry'
     config = {}
 
     result = getuinfo.getresult(method,user_id,**config)
 
     print result
 
-    for s in result:
-        print s + " : " + result[s]
 
+def flowchg(user_id,resourcecode): #流量包2.0购买办理
+    method = 'com.aop.method.flowchg'
+    config = {'resourcecode':resourcecode,
+              'busiorder':'BUSI001603010857398370101117'}
+
+    result = getuinfo.getresult(method,user_id,**config)
+
+    print result
 
 
 if __name__ == '__main__':
@@ -343,5 +349,7 @@ if __name__ == '__main__':
     # mobilebusichange('15607191388') #移动业务办理
     # getbusiacceptrecord('15607191388') #业务受理记录查询
     # getflowanalysisdetail('15607191388') #移动手机上网流量分析查询-新业务
-    getfourgpackageqry('13163340724') #4G套餐变更查询
+    # getfourgpackageqry('13163340724') #4G套餐变更查询
     # fourgpackagechg('13163340724')  #4G套餐变更
+    getflowqry('13163340724') #流量包2.0购买查询
+    # flowchg('13163340724','11120000050005010000') #流量包2.0购买办理
