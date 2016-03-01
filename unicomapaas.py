@@ -330,7 +330,7 @@ def flowchg(user_id,resourcecode): #流量包2.0购买办理
 if __name__ == '__main__':
     # getflow('18607146513')   #上网流量查询
     # getpackage('18607106820')  #4G套餐余量查询
-    # getleavepackagedata('15607191388') #套餐余量查询
+    getleavepackagedata('15607191388') #套餐余量查询
     # getresourceremainqry('18607146513') #资源余量查询
     # getuserinfo('18607106820') #客户信息查询
     # getcontractperiodqry('18696185833') #合约计划
@@ -351,5 +351,5 @@ if __name__ == '__main__':
     # getflowanalysisdetail('15607191388') #移动手机上网流量分析查询-新业务
     # getfourgpackageqry('13163340724') #4G套餐变更查询
     # fourgpackagechg('13163340724')  #4G套餐变更
-    getflowqry('13163340724') #流量包2.0购买查询
+    # getflowqry('13163340724') #流量包2.0购买查询
     # flowchg('13163340724','11120000050005010000') #流量包2.0购买办理
